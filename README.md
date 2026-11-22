@@ -116,6 +116,6 @@ SkinSense AI is an educational skincare and cosmetology companion. It does not d
 
 The project README identifies the following repository as an assignment reference:
 
-[NumberGuessingAppTflite](https://github.com/Uzair390-Del/NumberGuessingAppTflite)
+[Assignment2](https://github.com/Uzair390-Del/Mobile-App-Developement/blob/main/Assignments/Theory/Assignment%20No%202.md)
 
 SkinSense AI is an independent implementation; the reference repository is not included in this project ZIP.
