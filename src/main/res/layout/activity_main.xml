@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ivory"
+    android:clipToPadding="false"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="30dp">
+
+        <!-- Minimal editorial header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.22"
+                    android:text="THE SKIN EDIT"
+                    android:textColor="@color/muted"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="skin sense"
+                    android:textColor="@color/espresso"
+                    android:textSize="23sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/avatar_circle"
+                android:gravity="center"
+                android:text="♡"
+                android:textColor="@color/espresso"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- Editorial greeting -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:fontFamily="serif"
+            android:text="A softer kind of\nskincare."
+            android:textColor="@color/espresso"
+            android:textSize="34sp"
+            android:lineSpacingExtra="0dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Little rituals, thoughtful ingredients, and a moment for you."
+            android:textColor="@color/muted"
+            android:textSize="13sp"
+            android:lineSpacingExtra="3dp" />
+
+        <!-- Hero card -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="218dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/feature_card"
+            android:clipToOutline="true"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pill_label"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:letterSpacing="0.12"
+                    android:text="YOUR DAILY RITUAL"
+                    android:textColor="@color/espresso"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="serif"
+                    android:text="Make space\nfor your glow."
+                    android:textColor="@color/espresso"
+                    android:textSize="27sp" />
+
+                <TextView
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Build a simple morning and evening routine."
+                    android:textColor="@color/espressoSoft"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnRoutine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="11dp"
+                    android:backgroundTint="@color/espresso"
+                    android:minWidth="0dp"
+                    android:paddingStart="17dp"
+                    android:paddingEnd="17dp"
+                    android:text="Explore routine  →"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/soft_rose_circle"
+                android:gravity="center"
+                android:text="✧\n◯"
+                android:textColor="@color/roseDark"
+                android:textSize="30sp" />
+        </FrameLayout>
+
+        <!-- Quick categories -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="serif"
+            android:text="Explore the essentials"
+            android:textColor="@color/espresso"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="A little knowledge for happier skin."
+            android:textColor="@color/muted"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnProfile"
+                style="@style/FeatureButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center"
+                android:text="◌\nSkin profile"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnIngredients"
+                style="@style/FeatureButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="✧\nIngredients"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSunCare"
+                style="@style/FeatureButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center"
+                android:text="☼\nSun care"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnLearn"
+                style="@style/FeatureButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                android:text="⌕\nLearn cosmetology"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Skin photo feature -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="A closer look at your skin"
+                android:textColor="@color/espresso"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Choose a photo to keep it alongside your skincare journey."
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnAnalyze"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="13dp"
+                android:backgroundTint="@color/roseDark"
+                android:text="Choose a skin photo  →"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/selectedPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="Selected photo preview"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/white_card"
+            android:padding="16dp"
+            android:textColor="@color/espresso"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/photoStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="For education and self-care · Not a medical diagnosis"
+            android:textColor="@color/muted"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+</ScrollView>

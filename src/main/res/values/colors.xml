@@ -1,0 +1,12 @@
+<resources>
+    <color name="ivory">#F8F4EE</color>
+    <color name="charcoal">#3B302B</color>
+    <color name="espresso">#4A332D</color>
+    <color name="espressoSoft">#725B51</color>
+    <color name="muted">#9A8980</color>
+    <color name="rose">#C99A91</color>
+    <color name="roseDark">#9B6F67</color>
+    <color name="white">#FFFFFF</color>
+    <color name="sand">#E8D9CC</color>
+    <color name="cardCream">#F0E4D9</color>
+</resources>
