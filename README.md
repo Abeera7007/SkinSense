@@ -1,121 +1,166 @@
-# SkinSense AI
+<div align="center">
 
-**An Android-based skincare education and cosmetology companion application**
+<img src="assets/banner.svg" alt="SkinSense AI banner" width="100%"/>
 
-SkinSense AI is a Java-based Android application that brings together basic skincare education, cosmetic ingredient information, routine guidance, sun-protection information, a simple skin-type self-assessment, and facial-photo selection/preview.
+<br/>
 
-> **Current implementation status:** The project includes the TensorFlow Lite Interpreter dependency and a basic model-loading helper, but it does **not** include a trained skin-analysis model. The photo feature currently selects and previews an image only. It does not generate AI skin predictions or diagnose skin conditions.
+<img src="https://img.shields.io/badge/Platform-Android-E8A9B6?style=for-the-badge&labelColor=4A3428&logo=android&logoColor=white" alt="Android"/>
+<img src="https://img.shields.io/badge/Language-Java-F4C2CC?style=for-the-badge&labelColor=4A3428&logo=openjdk&logoColor=white" alt="Java"/>
+<img src="https://img.shields.io/badge/UI-XML%20%2B%20Material-E9D5BE?style=for-the-badge&labelColor=4A3428" alt="XML and Material"/>
+<img src="https://img.shields.io/badge/ML-TensorFlow%20Lite-D98FA0?style=for-the-badge&labelColor=4A3428&logo=tensorflow&logoColor=white" alt="TensorFlow Lite"/>
 
-## Features
+<br/><br/>
 
-- Branded splash screen
-- Home dashboard with skincare-related sections
-- Facial photo picker and image preview
-- Basic skin-type self-assessment using user-selected answers
-- Cosmetic ingredient encyclopedia
-- Morning and evening routine guidance
-- Sun-protection education
-- Cosmetology learning hub
+*A cosmetology education and skincare companion with private, on-device image analysis.*
 
-## Technology Stack
+[Features](#-features) · [Design](#-interface-design) · [Getting Started](#-getting-started) · [AI Analysis](#-ai-skin-analysis) · [Disclaimer](#-disclaimer)
 
-- **Language:** Java
-- **User interface:** XML layouts
-- **Build configuration:** Gradle Groovy DSL
-- **Android namespace/application ID:** `com.example.skinsenseai`
-- **Minimum SDK:** API 24
-- **Compile SDK:** API 35
-- **Target SDK:** API 35
-- **AndroidX AppCompat:** 1.7.0
-- **Material Components:** 1.12.0
-- **TensorFlow Lite Interpreter:** 2.17.0
+</div>
 
-## Project Structure
+<br/>
+
+---
+
+##  About
+
+**SkinSense AI** is a Java + XML Android application that combines skincare education with an experimental on-device skin photo analysis tool. It is built as a calm, journal-style companion: learn what's in your products, build a simple routine, understand sun protection, and explore cosmetology basics, all without sending your photos anywhere.
+
+> [!NOTE]
+> SkinSense AI is an **educational project**. It does not diagnose skin conditions and is not a substitute for a qualified dermatologist.
+
+---
+
+##  Features
+
+| | Feature | What it does |
+|---|---|---|
+|  | **Branded splash screen** | Soft, minimal launch experience in the app's palette |
+|  | **Editorial home dashboard** | Rounded category tiles and serif headings in a skincare-journal layout |
+|  | **Facial photo picker & preview** | Choose a photo from your device and preview it before analysis |
+|  | **Skin type self-assessment** | Guided questions to understand your skin type |
+|  | **Ingredient encyclopedia** | Plain-language reference for common cosmetic ingredients |
+|  | **Morning & evening routines** | Basic step-by-step skincare routine guide |
+|  | **Sun protection education** | Learn why and how to protect your skin |
+|  | **Cosmetology learning hub** | Introductory cosmetology learning content |
+|  | **On-device AI analysis** | TensorFlow Lite inference with the top 3 results and inference time |
+
+---
+
+##  Interface Design
+
+The interface uses a **warm ivory, muted blush, sand and espresso** palette with editorial serif headings, rounded category tiles and a minimal skincare-journal layout. Everything is built with native XML views and drawable shapes, so **no remote image assets** are required for the dashboard.
+
+<div align="center">
+
+| Ivory | Blush | Rose | Sand | Espresso |
+|:---:|:---:|:---:|:---:|:---:|
+| ![#FFF8F1](https://img.shields.io/badge/-%20%20%20%20%20%20-FFF8F1?style=flat-square) | ![#F4C2CC](https://img.shields.io/badge/-%20%20%20%20%20%20-F4C2CC?style=flat-square) | ![#D98FA0](https://img.shields.io/badge/-%20%20%20%20%20%20-D98FA0?style=flat-square) | ![#E9D5BE](https://img.shields.io/badge/-%20%20%20%20%20%20-E9D5BE?style=flat-square) | ![#4A3428](https://img.shields.io/badge/-%20%20%20%20%20%20-4A3428?style=flat-square) |
+| `#FFF8F1` | `#F4C2CC` | `#D98FA0` | `#E9D5BE` | `#4A3428` |
+
+</div>
+
+<!-- Add screenshots here once available:
+<p align="center">
+  <img src="docs/screenshots/splash.png" width="22%"/>
+  <img src="docs/screenshots/home.png" width="22%"/>
+  <img src="docs/screenshots/analysis.png" width="22%"/>
+  <img src="docs/screenshots/routine.png" width="22%"/>
+</p>
+-->
+
+---
+
+##  Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Language | Java |
+| UI | XML layouts, Material Components |
+| Libraries | AndroidX AppCompat |
+| Build | Gradle (Groovy DSL), Android Gradle Plugin 8.7.3 |
+| ML | TensorFlow Lite Interpreter |
+| JDK / SDK | JDK 17 · Android SDK Platform 35 |
+
+---
+
+##  Getting Started
+
+1. **Extract** `SkinSenseAI_Complete_Project.zip` (or clone this repository).
+2. In Android Studio choose **File → Open**.
+3. Select the extracted `SkinSenseAI` folder, the one containing `settings.gradle`.
+4. Use **JDK 17** with **Android Gradle Plugin 8.7.3**.
+5. Install **Android SDK Platform 35** from SDK Manager if prompted.
+6. Let Gradle sync finish, then run on an emulator or Android phone.
+
+---
+
+##  AI Skin Analysis
+
+The app classifies a chosen facial photo **on-device** with a TensorFlow Lite model. Photos are not uploaded by this app flow.
+
+### Pipeline
+
+`SkinModelHelper.java` runs the following steps:
 
 ```text
-SkinSenseAI/
-├── app/
-│   ├── build.gradle
-│   └── src/main/
-│       ├── AndroidManifest.xml
-│       ├── assets/
-│       │   └── MODEL_README.txt
-│       ├── java/com/example/skinsenseai/
-│       │   ├── MainActivity.java
-│       │   ├── SkinModelHelper.java
-│       │   └── SplashActivity.java
-│       └── res/
-│           ├── drawable/
-│           ├── layout/
-│           │   ├── activity_main.xml
-│           │   └── activity_splash.xml
-│           └── values/
-│               ├── colors.xml
-│               └── styles.xml
-├── build.gradle
-├── gradle.properties
-├── settings.gradle
-└── README.md
+ Photo ──▶ Centre-crop & resize ──▶ RGB → ByteBuffer ──▶ Interpreter.run() ──▶ Top-3 labelled scores
+          (to model input size)      (float32 pixels)       (TensorFlow Lite)     (+ inference time)
 ```
 
-## Setup and Run
+1. Load `skin_model.tflite` from assets
+2. Centre-crop and resize the photo to the model's input size
+3. Write RGB pixels into a `ByteBuffer`
+4. Run `Interpreter.run()`
+5. Decode the output vector into labelled probabilities and show the top 3 with inference time
 
-1. Download or clone this repository.
-2. Extract the project if downloaded as a ZIP.
-3. Open Android Studio.
-4. Select **File → Open** and choose the `SkinSenseAI` project folder (the folder containing `settings.gradle`).
-5. Use **JDK 17** and allow Gradle sync to complete.
-6. If prompted, install Android SDK Platform 35 through SDK Manager.
-7. Run the app on an Android emulator or a connected Android device.
+### Adding a custom model
 
-## How the Current App Works
+> [!IMPORTANT]
+> The generic model files are **not bundled**. Add both to `app/src/main/assets/`:
 
-1. `SplashActivity` displays the branded splash screen briefly.
-2. The splash screen opens `MainActivity`.
-3. `MainActivity` connects dashboard buttons to their corresponding actions.
-4. The photo option opens Android's content picker and displays the selected image.
-5. Other dashboard options display educational content or a basic self-assessment dialog.
-6. `SkinModelHelper` provides a foundation for loading a TensorFlow Lite model and inspecting its input/output tensor shapes.
+| File | Purpose |
+|---|---|
+| `skin_model.tflite` | The TensorFlow Lite model |
+| `labels.txt` | One class per line, in the same order as the model output |
 
-## TensorFlow Lite / AI Status
+You can produce them in two ways:
 
-The current project does not contain a trained `.tflite` skin-analysis model. `SkinModelHelper` loads a model asset by filename and exposes input/output tensor shapes, but model-specific image preprocessing, inference, and output interpretation have not been implemented.
+- **Train your own:** run `tools/train_and_convert.py` (MobileNetV2 transfer learning on a folder-per-class dataset, exported to TFLite).
+- **Teachable Machine:** export an image model as TensorFlow Lite, then set `INPUT_MEAN = 127.5f` and `INPUT_STD = 127.5f` in `SkinModelHelper.java`.
 
-Before adding AI predictions:
+Without the model files the app still runs and reports that the model is unavailable.
 
-- Select a model whose task and license are documented.
-- Verify input image dimensions, color channel order, data type, and normalization.
-- Verify output tensor dimensions, labels, and confidence interpretation.
-- Evaluate performance across different skin tones, lighting conditions, and image qualities.
-- Implement and test preprocessing, inference, and output decoding according to that model's specification.
-- Avoid presenting experimental model outputs as medical diagnoses.
+> Predictions are educational estimates, not medical diagnoses. If you train your own model, report its source, dataset, licence and validation accuracy.
 
-Do not rename an unrelated `.tflite` file and present it as a skin-analysis model.
+###  Integrated experimental SCIN model
 
-## Limitations
+| Property | Value |
+|---|---|
+| Model asset | `app/src/main/assets/skin_health_model.tflite` |
+| Output labels (in order) | `Healthy-looking`, `Reported skin concern` |
+| Input | float32 RGB `[1, 224, 224, 3]` |
+| Preprocessing | Preserve aspect ratio, neutral-grey padding, normalize RGB to `[-1, 1]` |
+| Inference | On-device with TensorFlow Lite; photo is not uploaded by this app flow |
 
-- No trained skin-analysis model is bundled.
-- The photo feature is limited to image selection and preview.
-- The skin-type result is based on a small self-assessment, not image analysis.
-- The application is an educational prototype and is not a medical diagnostic tool.
+> [!WARNING]
+> **Important limitation:** this experimental model showed unstable validation performance during training and was trained on imbalanced, user-reported SCIN groupings. Its displayed percentages are **model scores, not calibrated probabilities**. It is **not suitable for diagnosis** or for determining whether skin is healthy.
 
-## Future Improvements
+---
 
-- Integrate a suitable, evaluated, and properly licensed TensorFlow Lite model.
-- Implement image preprocessing and inference.
-- Add model-result interpretation with clear confidence and limitation messaging.
-- Improve accessibility, input validation, and device testing.
-- Expand the ingredient and cosmetology learning library.
-- Add automated tests and document real-device testing results.
+##  Reference
 
-## Disclaimer
+The assignment reference repository is [Uzair390-Del/NumberGuessingAppTflite](https://github.com/Uzair390-Del/NumberGuessingAppTflite). This project is an **independent implementation**; the reference repository has not been copied into this project.
 
-SkinSense AI is an educational skincare and cosmetology companion. It does not diagnose, treat, or prevent skin diseases and does not replace advice from a qualified dermatologist or other healthcare professional.
+---
 
-## Reference
+##  Disclaimer
 
-The project README identifies the following repository as an assignment reference:
+This educational application does not diagnose skin diseases or replace advice from a qualified dermatologist. If you have a skin concern, please consult a medical professional.
 
-[Assignment2](https://github.com/Uzair390-Del/Mobile-App-Developement/blob/main/Assignments/Theory/Assignment%20No%202.md)
+<div align="center">
 
-SkinSense AI is an independent implementation; the reference repository is not included in this project ZIP.
+<br/>
+
+<sub>Made with 🌸 and a lot of Gradle syncs</sub>
+
+</div>
